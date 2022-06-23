@@ -20,19 +20,22 @@ class App extends Component {
   }
 
   render() {
+    const { value, taskArray } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           Task:
           <input
             type="text"
-            value={this.state.value}
+            value={value}
             onChange={this.handleChange}
+            id="taskInput"
           />
         </label>
         <input type="submit" value="Submit" />
         <div>
-          <Overview value={this.state.taskArray} />
+          <Overview tasks={taskArray} />
         </div>
       </form>
     );

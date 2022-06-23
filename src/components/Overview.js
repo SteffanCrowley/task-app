@@ -1,19 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Overview extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Overview = (props) => {
+  const { tasks } = props;
+  const todoItems = tasks.map((todo, index) => <li key={index}>{todo}</li>);
 
-  render() {
-    const tasks = this.props.value;
-    const todoItems = tasks.map((todo, index) => <li key={index}>{todo}</li>);
-    return (
-      <div>
-        <ul>{todoItems}</ul>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <ul>{todoItems}</ul>
+    </div>
+  );
+};
 
 export default Overview;
