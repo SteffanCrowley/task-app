@@ -6,12 +6,11 @@ class Overview extends Component {
   }
 
   render() {
-    const { title, onButtonClicked } = this.props;
-
+    const tasks = this.props.value;
+    const todoItems = tasks.map((todo, index) => <li key={index}>{todo}</li>);
     return (
       <div>
-        <h1>{title}</h1>
-        <button onClick={onButtonClicked}>Click Me!</button>
+        <ul>{todoItems}</ul>
       </div>
     );
   }

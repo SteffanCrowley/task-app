@@ -4,7 +4,7 @@ import Overview from "./components/Overview";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", taskArray: [] };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,8 +15,8 @@ class App extends Component {
   }
 
   handleSubmit(event) {
-    alert("A name was submitted: " + this.state.value);
     event.preventDefault();
+    this.setState({ taskArray: [...this.state.taskArray, this.state.value] });
   }
 
   render() {
@@ -31,6 +31,9 @@ class App extends Component {
           />
         </label>
         <input type="submit" value="Submit" />
+        <div>
+          <Overview value={this.state.taskArray} />
+        </div>
       </form>
     );
   }
